@@ -37,7 +37,7 @@ const About = () => {
           I specialize in full-stack development, and I'm particularly passionate about creating seamless user experiences and efficient backend systems. My work involves designing and developing web applications, optimizing performance, and ensuring scalability.</p>
 
           <ButtonLink
-            url='https://drive.google.com/file/d/15gOCEmzmiBwUpmSXJmtG5copnCe60rFh/view?usp=drive_link'
+            url='https://drive.google.com/drive/folders/15LVxuLi-BY_PPx2uUlKohNwaZClz-vw-'
             text='View Resume →'
             padding={`p-3`}
           />
