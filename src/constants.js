@@ -23,35 +23,38 @@ export const experiences = [
         'duration': 'Aug 2024 - Present',
         'logo': 'https://upload.wikimedia.org/wikipedia/en/thumb/2/29/University_of_Texas_at_Arlington_seal.svg/1200px-University_of_Texas_at_Arlington_seal.svg.png',
         'points': [
-            'Developed distributed, cloud-native systems on Google Cloud Platform (GCP), leveraging services like Compute Engine and Cloud Functions to ensure scalability and resilience in handling large user traffic and data workloads.',
-            'Created scalable Node.js RESTful microservices and ensured high-performance for global users.',
-            'Collaborated with cross-functional teams in an Agile environment to implement distributed cloud solutions, writing technical specifications and unit tests with over 80% code coverage.'
+            'Built Java microservices with Spring Boot, using Stream API & Lambdas to boost performance by 30%.',
+            'Secured APIs with JWT authentication & OAuth2, ensuring protected access to endpoints and sensitive data.',
+            'Improved database performance with Hibernate ORM, reducing manual effort by 35%.',
+            'Integrated unit testing with JUnit to ensure code quality and reliability, identifying issues early and improving overall software robustness.'
         ],
         'url': 'https://www.uta.edu/',
     },
     {
-        'company': 'Caypro',
-        'role': 'Software Engineer Intern',
-        'duration': 'Dec 2021 - Apr 2022',
-        'logo': 'https://media.licdn.com/dms/image/C4D0BAQGJNms_rAb_Qw/company-logo_200_200/0/1630545901277/talentnow_solution_service_pvt_ltd_logo?e=2147483647&v=beta&t=Ips5gXvYZNteu0fBOLbMqSBT4UiqCSqNnVw3pDcsln8',
-        'points': [
-            'Designed and implemented hybrid mobile applications and web solutions using React, Node.js, and AWS Lambda.',
-            'Built microservices using Node.js for high-performance, scalable cloud applications.',
-            'Utilized NoSQL databases like DynamoDB & MongoDB to manage large volumes of unstructured data, used caching systems such as Redis & Elasticache to enhance application performance and minimize data retrieval latency.'
-        ],
-        'url': 'https://www.caypro.io/',
-    },
-    {
         'company': 'Orbit Tours and Travels',
-        'role': 'Software Development Engineer',
-        'duration': 'Jun 2020 - Nov 2021',
+        'role': 'Software Engineer',
+        'duration': 'Jun 2020 - Apr 2022',
         'logo': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSjC47R2X0_Apg6PjHuZohpF_XZ6da0mvyfw&s',
         'points': [
-            'Developed a real-time Android app using Java and Google Firebase, incorporating user authentication and data synchronization. Implemented RESTful APIs for seamless integration between mobile and web applications.',
-            'Worked on back-end services and databases using Node.js, TypeScript, and MySQL.',
-            'Implemented automated unit tests using Mocha and Jest, and used Google Analytics for monitoring user activity.'
+            'Led migration of on-premises applications to AWS with multi-AZ & multi-region architectures for high availability.',
+            'Developed backend services using Java and Spring Boot, following MVC architecture for modular design.',
+            'Optimized database performance and reduced query execution time by 40%, leading to faster response times.',
+            'Implemented CI/CD pipelines in Azure DevOps using YAML and Docker, streamlining deployment and scaling.'
         ],
         'url': 'https://www.facebook.com/orbittoursandtravels/',
+    },
+    {
+        'company': 'Caypro Technologies',
+        'role': 'Software Engineer Intern',
+        'duration': 'Dec 2019 - Apr 2020',
+        'logo': 'https://media.licdn.com/dms/image/C4D0BAQGJNms_rAb_Qw/company-logo_200_200/0/1630545901277/talentnow_solution_service_pvt_ltd_logo?e=2147483647&v=beta&t=Ips5gXvYZNteu0fBOLbMqSBT4UiqCSqNnVw3pDcsln8',
+        'points': [
+            'Developed a dynamic interactive ReactJs-based UI dashboard to showcase comprehensive reports and improved user productivity by enabling easy filtering of downtime reports.',
+            'Implemented Redux middleware to manage side effects, querying and improved application performance by 20%.',
+            'Optimized the MySQL schema, improving query execution latency and ensuring efficient database normalization.',
+            'Implemented RESTful APIs for backend integration, ensuring data flow and performance across different modules.'
+        ],
+        'url': 'https://www.caypro.io/',
     },
     
 ]
