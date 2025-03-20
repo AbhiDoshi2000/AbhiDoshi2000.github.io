@@ -1,5 +1,5 @@
-import React, { useState ,useEffect} from 'react';
-import { Link,useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,36 +20,130 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gray-800 p-4 text-white fixed w-full z-10 top-0" style={{ cursor: 'default' }}>
-      <div className="mx-auto text-center flex w-5/6 justify-between">
-        
+      <div className="mx-auto flex max-w-screen-xl justify-between relative items-center">
+        {/* Left Links */}
         <div className="hidden sm:flex space-x-4 items-center text-sm">
-          <Link to='/'>Home</Link>
-          <Link to='/about'>About</Link>
-        </div>
-        <div className="text-3xl sm:text-2xl font-extrabold">
-          <a href="/">Abhishek Doshi</a>
-        </div>
-        <div className="hidden sm:flex space-x-4 items-center text-sm">
-          <Link to='/projects'>Projects</Link>
-          <Link to='/experience'>Experience</Link>
-          <Link to='/contact'>Contact</Link>
+          <Link
+            to="/"
+            className="relative group transition-all duration-300 ease-in-out hover:text-yellow-400 hover:scale-105"
+          >
+            Home
+            <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          <Link
+            to="/about"
+            className="relative group transition-all duration-300 ease-in-out hover:text-yellow-400 hover:scale-105"
+          >
+            About
+            <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+          </Link>
         </div>
 
+        {/* Centered Name */}
+        <div className="text-2xl sm:text-3xl font-extrabold absolute left-1/2 transform -translate-x-1/2">
+          <a href="/">Abhishek Doshi</a>
+        </div>
+
+        {/* Right Links */}
+        <div className="hidden sm:flex space-x-4 items-center text-sm">
+          <Link
+            to="/projects"
+            className="relative group transition-all duration-300 ease-in-out hover:text-yellow-400 hover:scale-105"
+          >
+            Projects
+            <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          <Link
+            to="/experience"
+            className="relative group transition-all duration-300 ease-in-out hover:text-yellow-400 hover:scale-105"
+          >
+            Experience
+            <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          <Link
+            to="/contact"
+            className="relative group transition-all duration-300 ease-in-out hover:text-yellow-400 hover:scale-105"
+          >
+            Contact
+            <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+        </div>
+
+        {/* Mobile Menu Button */}
         <div className="sm:hidden">
-          <button onClick={toggleMobileMenu} className="text-xl focus:outline-none">
+          <button
+            onClick={toggleMobileMenu}
+            className="text-xl focus:outline-none"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          >
             {isMobileMenuOpen ? '✕' : '☰'}
           </button>
         </div>
-        <div className={`sm:hidden fixed top-0 left-0 w-full h-full bg-gray-800 text-center ${isMobileMenuOpen ? 'flex flex-col items-center justify-center' : 'hidden'}`}>
-          <button onClick={closeMobileMenu} className="text-xl absolute top-4 right-4 focus:outline-none">
+
+        {/* Mobile Menu */}
+        <div
+          className={`sm:hidden fixed top-0 left-0 w-full h-full bg-gray-800 text-center z-20 transition-opacity duration-300 ${
+            isMobileMenuOpen ? 'flex flex-col items-center justify-center opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        >
+          <button
+            onClick={closeMobileMenu}
+            className="text-xl absolute top-4 right-4 focus:outline-none"
+            aria-label="Close menu"
+          >
             ✕
           </button>
           <ul className="font-medium text-2xl space-y-4">
-            <li><Link to='/' onClick={closeMobileMenu}>Home</Link></li>
-            <li><Link to='/about' onClick={closeMobileMenu}>About</Link></li>
-            <li><Link to='/projects' onClick={closeMobileMenu}>Projects</Link></li>
-            <li><Link to='/experience' onClick={closeMobileMenu}>Experince</Link></li>
-            <li><Link to='/contact' onClick={closeMobileMenu}>Contact</Link></li>
+            <li>
+              <Link
+                to="/"
+                onClick={closeMobileMenu}
+                className="relative group transition-all duration-300 ease-in-out hover:text-yellow-400 hover:scale-105"
+              >
+                Home
+                <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                onClick={closeMobileMenu}
+                className="relative group transition-all duration-300 ease-in-out hover:text-yellow-400 hover:scale-105"
+              >
+                About
+                <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/projects"
+                onClick={closeMobileMenu}
+                className="relative group transition-all duration-300 ease-in-out hover:text-yellow-400 hover:scale-105"
+              >
+                Projects
+                <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/experience"
+                onClick={closeMobileMenu}
+                className="relative group transition-all duration-300 ease-in-out hover:text-yellow-400 hover:scale-105"
+              >
+                Experience
+                <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                onClick={closeMobileMenu}
+                className="relative group transition-all duration-300 ease-in-out hover:text-yellow-400 hover:scale-105"
+              >
+                Contact
+                <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
