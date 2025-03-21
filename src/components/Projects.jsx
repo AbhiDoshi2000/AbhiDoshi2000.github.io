@@ -151,13 +151,13 @@ export const project = [
     git: "",
     technologies: ['Java', 'Swing', 'JFrame', 'AWT Library', "MySQL"]
   },
-  {
-    title: 'Dummy Project',
-    description: 'A placeholder project to test the carousel and 3D effects. This project demonstrates how the Projects page handles more than 3 cards.',
-    image: Car,
-    git: "https://github.com",
-    technologies: ['React', 'Tailwind', 'Node']
-  }
+//   {
+//     title: 'Dummy Project',
+//     description: 'A placeholder project to test the carousel and 3D effects. This project demonstrates how the Projects page handles more than 3 cards.',
+//     image: Car,
+//     git: "https://github.com",
+//     technologies: ['React', 'Tailwind', 'Node']
+//   }
 ];
 
 export default Projects;
