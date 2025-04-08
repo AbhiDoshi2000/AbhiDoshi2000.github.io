@@ -10,7 +10,7 @@ import Projects from './components/Projects';
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-gray-100">
+      <div className="min-h-screen flex flex-col bg-black">
         <Navbar />
         <main className="flex-1">
           <Routes>
@@ -21,15 +21,8 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
-        <Footer
-          style={{
-            position: 'fixed',
-            bottom: 0,
-            width: '100%',
-            zIndex: 10,
-          }}
-          className="p-2 text-sm" // Override padding and font size
-        />
+        {/* Footer appears only after scrolling through content */}
+        <Footer className="p-2 text-sm mt-12" />
       </div>
     </BrowserRouter>
   );

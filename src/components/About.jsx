@@ -13,7 +13,7 @@ const education = [
   },
   {
     degree: "Bachelor's in Computer Engineering",
-    institution: 'Your Undergraduate University',
+    institution: 'Indus University',
     year: '2018 - 2022',
     details:
       'Gained a strong foundation in programming, algorithms, and system design.',
@@ -22,6 +22,7 @@ const education = [
 
 const About = () => {
   useEffect(() => {
+    // Scroll-fade observer (for intro section)
     const fadeElements = document.querySelectorAll('.scroll-fade');
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,12 +36,12 @@ const About = () => {
       },
       { threshold: 0.2 }
     );
-
     fadeElements.forEach((el) => observer.observe(el));
 
     const timeline = document.querySelector('.education-timeline');
     const timelineDot = document.querySelector('.education-dot');
     const educationSection = document.querySelector('.education-section');
+    const boxes = document.querySelectorAll('.education-info-box');
 
     const updateTimeline = () => {
       const scrollTop = window.scrollY;
@@ -48,7 +49,10 @@ const About = () => {
       const sectionHeight = educationSection.offsetHeight;
       const windowHeight = window.innerHeight;
 
-      const sectionVisible = Math.max(0, Math.min(sectionHeight, scrollTop - sectionTop + windowHeight));
+      const sectionVisible = Math.max(
+        0,
+        Math.min(sectionHeight, scrollTop - sectionTop + windowHeight)
+      );
       const progress = sectionVisible / sectionHeight;
 
       timeline.style.height = `${progress * 100}%`;
@@ -56,11 +60,24 @@ const About = () => {
       timelineDot.style.top = `${progress * 100}%`;
       timelineDot.style.opacity = progress;
 
-      if (progress > 0) {
-        timeline.style.boxShadow = `0 0 10px 2px rgba(255, 0, 127, ${progress}), 0 0 20px 5px rgba(0, 255, 135, ${progress})`;
-      } else {
-        timeline.style.boxShadow = 'none';
-      }
+      timeline.style.boxShadow =
+        progress > 0
+          ? `0 0 20px 4px rgba(255, 255, 255, ${progress}), 0 0 30px 6px rgba(255, 255, 255, ${progress})`
+          : 'none';
+
+      // Flip each education box individually when in viewport
+      boxes.forEach((box) => {
+        const rect = box.getBoundingClientRect();
+        const isFullyInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+        const isPartiallyInView = rect.top < window.innerHeight && rect.bottom > 0;
+      
+        // Use partial visibility so it shows as it scrolls in/out
+        if (isPartiallyInView) {
+          box.classList.add('visible');
+        } else {
+          box.classList.remove('visible');
+        }
+      });
     };
 
     window.addEventListener('scroll', updateTimeline);
@@ -81,7 +98,7 @@ const About = () => {
             <h2 className="text-4xl sm:text-5xl font-extrabold mt-2 bg-clip-text text-transparent bg-gradient-to-r from-gray-500 to-pink-500 text-center">
               Introduction
             </h2>
-            <p className="mt-3 mb-6 text-[17px] max-w-3xl leading-[30px]">
+            <p className="mt-3 mb-6 text-[17px] max-w-3xl leading-[30px] scroll-fade">
               Hello! I'm Abhishek Doshi, a recent Master's graduate from the
               University of Texas at Arlington, class of 2024, and a dedicated{' '}
               <a
@@ -111,7 +128,7 @@ const About = () => {
           <Skills />
 
           {/* Education Section */}
-          <div className="education-section sm:px-16 px-2 mt-12 mb-12">
+          <div className="education-section sm:px-16 px-2 mt-12 mb-6">
             <h2 className="text-4xl sm:text-5xl font-extrabold mt-2 bg-clip-text text-transparent bg-gradient-to-r from-gray-500 to-pink-500 text-center leading-tight py-6 mb-8">
               Education
             </h2>
@@ -121,7 +138,7 @@ const About = () => {
               </div>
               <div className="education-info">
                 {education.map((edu, index) => (
-                  <div key={index} className="education-info-box scroll-fade">
+                  <div key={index} className="education-info-box">
                     <div className="education-info-in">
                       <div className="education-role">
                         <h4>{edu.degree}</h4>

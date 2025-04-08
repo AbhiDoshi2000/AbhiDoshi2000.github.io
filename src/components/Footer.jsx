@@ -3,11 +3,11 @@ import { FaGithub } from 'react-icons/fa';
 import { AiFillLinkedin } from 'react-icons/ai';
 import { FiMail } from 'react-icons/fi';
 
-const Footer = ({ className, style }) => {
+const Footer = ({ className = '' }) => {
   const year = new Date().getFullYear();
 
   return (
-    <div className={`bg-slate-900 p-4 ${className}`} style={{ cursor: 'default', ...style }}>
+    <div className={`bg-slate-900 p-4 mt-12 cursor-default ${className}`}>
       <div className="flex justify-between flex-wrap gap-4 max-w-screen-xl mx-auto">
         <p className="text-white text-center w-full sm:w-auto font-light">
           © {year} Abhishek Doshi. All rights reserved.
@@ -18,7 +18,7 @@ const Footer = ({ className, style }) => {
             className="transition ease-in-out duration-300 rounded-md hover:scale-110 hover:-translate-y-1 cursor-pointer"
             aria-label="Email me"
           >
-            <FiMail className="text-lg" /> 
+            <FiMail className="text-lg" />
           </a>
           <a
             href="https://www.linkedin.com/in/abhishek-doshi-78412522b/"
@@ -27,7 +27,7 @@ const Footer = ({ className, style }) => {
             className="transition ease-in-out duration-300 rounded-md hover:scale-110 hover:-translate-y-1 cursor-pointer"
             aria-label="Visit my LinkedIn profile"
           >
-            <AiFillLinkedin className="text-lg" /> 
+            <AiFillLinkedin className="text-lg" />
           </a>
           <a
             href="https://github.com/AbhiDoshi2000"
@@ -36,7 +36,7 @@ const Footer = ({ className, style }) => {
             className="transition ease-in-out duration-300 rounded-md hover:scale-110 hover:-translate-y-1 cursor-pointer"
             aria-label="Visit my GitHub profile"
           >
-            <FaGithub className="text-lg" /> 
+            <FaGithub className="text-lg" />
           </a>
         </div>
       </div>
