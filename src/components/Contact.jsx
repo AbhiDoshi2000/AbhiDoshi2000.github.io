@@ -15,13 +15,9 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
+    const { name, value } = e.target;
 
-    // Enforce 1000 character limit for the message field
-    if (name === "message" && value.length > 1000) {
-      return; // Prevent further input if the limit is exceeded
-    }
+    if (name === "message" && value.length > 1000) return;
 
     setForm({
       ...form,
@@ -37,14 +33,13 @@ const Contact = () => {
     const user_email = form.email.trim();
     const user_message = form.message.trim();
 
-    if (username === '' || user_email === '' || user_message === '') {
+    if (!username || !user_email || !user_message) {
       setLoading(false);
       toast.error("Please fill all the fields.", {
         position: 'bottom-right',
       });
       return;
     }
-    console.log(username, user_email, user_message);
 
     emailjs
       .send(
@@ -65,11 +60,7 @@ const Contact = () => {
           toast.success("Message sent successfully!", {
             position: 'bottom-right',
           });
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
+          setForm({ name: "", email: "", message: "" });
         },
         (error) => {
           setLoading(false);
@@ -82,8 +73,8 @@ const Contact = () => {
   };
 
   return (
-    <div className='relative z-0 bg-black w-screen min-h-screen mt-12'>
-      <div className='text-white contact overflow-x-hidden pt-12 mt-8' id='contact'>
+    <div className='relative z-0 bg-black w-full min-h-screen mt-12 overflow-x-hidden'>
+      <div className='text-white contact pt-12 mt-8' id='contact'>
         <div className='z-10 w-full sm:w-[650px] m-auto p-8 rounded-2xl'>
           <p className='font-light'>REACH OUT TO ME</p>
           <h2 className='text-5xl font-extrabold mt-2 bg-clip-text text-transparent bg-gradient-to-r from-gray-500 to-pink-500'>
@@ -113,7 +104,7 @@ const Contact = () => {
                 name='email'
                 value={form.email}
                 onChange={handleChange}
-                placeholder="Ex:abc@gmail.com"
+                placeholder="Ex: abc@gmail.com"
                 className='py-4 px-6 rounded-lg font-medium bg-gray-900'
                 required
               />

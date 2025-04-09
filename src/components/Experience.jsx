@@ -5,15 +5,16 @@ import { experiences } from '../constants';
 
 const Experience = () => {
   return (
-    <div className='experience bg-black w-screen min-h-screen text-white pt-4 pt-16 overflow-x-hidden' id='experience'>
+    <div className='experience bg-black w-full min-h-screen text-white pt-4 overflow-x-hidden' id='experience'>
       <div className='pt-12 sm:px-16'>
         <p className='font-light'>MY JOURNEY SO FAR</p>
         <h2 className='text-4xl sm:text-5xl font-extrabold mt-2'>Work Experience</h2>
       </div>
-      <div className="pb-16"> 
+      <div className="pb-16">
         <VerticalTimeline className='mt-9'>
           {experiences.map((experience) => (
             <VerticalTimelineElement
+              key={experience.company}
               className="relative vertical-timeline-element--work"
               contentStyle={{ background: "#1d1836", color: "#fff" }}
               contentArrowStyle={{ borderRight: "7px solid  #232631" }}
