@@ -354,5 +354,31 @@
 }
 
 
+@keyframes customBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-customBounce {
+  animation: customBounce 1.5s ease-in-out infinite;
+}
+
+/* Tooltip styles */
+.group:hover .group-hover\:visible {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.group .invisible {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
+}
+
+
 
   
